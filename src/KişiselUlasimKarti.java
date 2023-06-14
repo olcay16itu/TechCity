@@ -34,13 +34,19 @@ public class KişiselUlasimKarti {
     }
 
     public void bakiyeEkle(int bakiye){
-        this.bakiye+=bakiye;
+        if(bakiye>0){
+            this.bakiye+=bakiye;
+        }
+        else{
+            System.out.println("Geçersiz bakiye değeri girildi.");
+        }
     }
     public double getBakiye(){
+
         return this.bakiye;
     }
 
-    public void ücretOde(int ucret){
+    public void ücretOde(double ucret){
         /*Person.people type=person.getPersontype();
         if(type== Person.people.OGRENCI){
             bakiye-=(fiyat*0.25);
@@ -56,11 +62,21 @@ public class KişiselUlasimKarti {
         double dusecek_miktar=person.ucretHesapla(ucret);
         if(this.bakiye<dusecek_miktar){
             System.out.println("Bakiyeniz yetersiz.Yükleme yapın...");
+            System.out.println("-------------------------");
         }
         else{
+            System.out.println(person.getClass());
+            System.out.println("Başlangıç bakiyesi : " + this.bakiye);
+            if(isDigital()){
+                System.out.println("Dijital kart");
+            }
+            else {
+                System.out.println("Fiziksel kart");
+            }
             this.bakiye-=dusecek_miktar;
             System.out.println("Ödenen ücret : " +dusecek_miktar);
             System.out.println("Kalan Bakiye : "+ this.bakiye);
+            System.out.println("-------------------------");
         }
 
 
